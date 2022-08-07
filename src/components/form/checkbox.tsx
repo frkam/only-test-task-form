@@ -18,7 +18,7 @@ const Container = styled.div`
     position: absolute;
     left: 0;
     content: '';
-    top: -20%;
+    top: 0;
     padding: 5px;
     width: 2rem;
     height: 2rem;
@@ -31,8 +31,8 @@ const Container = styled.div`
     display: block;
     position: absolute;
     left: 0;
-    top: -20%;
-    margin: 3px;
+    top: 0;
+    margin: 0.3rem;
     border-radius: 2px;
     width: 1.4rem;
     height: 1.4rem;

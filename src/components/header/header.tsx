@@ -1,7 +1,8 @@
 import styled from 'styled-components';
+import { NavLink } from 'react-router-dom';
 import logo from '@/shared/assets/logo.svg';
 
-const StyledHeader = styled.header`
+const HeaderContainer = styled.header`
   height: 15.8rem;
   width: 100%;
   text-align: center;
@@ -16,8 +17,10 @@ const StyledHeader = styled.header`
 
 export const Header = () => {
   return (
-    <StyledHeader>
-      <img src={logo} alt="Logo" />
-    </StyledHeader>
+    <HeaderContainer>
+      <NavLink to="/profile">
+        <img src={logo} alt="Logo" />
+      </NavLink>
+    </HeaderContainer>
   );
 };

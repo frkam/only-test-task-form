@@ -1,6 +1,7 @@
 import styled from 'styled-components';
 import { useAuthState, useAuthDispatch, logout } from '@/context/authenticationContext';
 import { StyledButton } from '@/components/styled/styledButton';
+import { breakpoints } from '@/shared/lib/breakpoints';
 
 const Wrapper = styled.div`
   display: flex;
@@ -8,6 +9,11 @@ const Wrapper = styled.div`
   flex-direction: column;
   padding-top: 27vh;
   gap: 5rem;
+  text-align: center;
+
+  ${breakpoints.device.tablet} {
+    text-align: left;
+  }
 `;
 
 const Text = styled.p`
@@ -27,7 +33,7 @@ const Profile = () => {
     <Wrapper>
       <Text>
         Здравствуйте,
-        <BoldText>{user?.login}</BoldText>
+        <BoldText> {user?.login}</BoldText>
       </Text>
       <StyledButton
         width={20}

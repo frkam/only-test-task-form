@@ -11,7 +11,7 @@ export const fakeLoginApi = async (login: string, password: string) => {
       } else if (login === fakeLogin && password !== fakePassword) {
         reject(new Error('Вы ввели неправильный пароль'));
       } else {
-        reject(new Error('Аккаунта с такими данными не существует'));
+        reject(new Error(`Пользователя ${login} не существует`));
       }
     }, 3000);
   });

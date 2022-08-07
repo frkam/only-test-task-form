@@ -1,4 +1,5 @@
 import { createGlobalStyle } from 'styled-components';
+import { breakpoints } from '@/shared/lib/breakpoints';
 
 export const GlobalStyles = createGlobalStyle`
   *,
@@ -12,8 +13,16 @@ export const GlobalStyles = createGlobalStyle`
   
   html {
     box-sizing: border-box;
-    font-size: 62.5%;
+    font-size: 38.5%;
     scroll-behavior: smooth;
+    
+    ${breakpoints.device.laptop} {
+      font-size: 50%;
+    }
+    
+    ${breakpoints.device.laptopL} {
+      font-size: 62.5%;
+    }
   }
   
   body {

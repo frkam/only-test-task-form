@@ -15,4 +15,8 @@ export const StyledInput = styled.input<StyledInputProps>`
   font-size: 1.6rem;
   color: ${(props) => (props.error ? props.theme.colors.red : props.theme.colors.black)};
   border: 1px solid ${(props) => (props.error ? props.theme.colors.red : 'transparent')};
+
+  &:focus {
+    outline: 1px solid ${(props) => props.theme.colors.black};
+  }
 `;
