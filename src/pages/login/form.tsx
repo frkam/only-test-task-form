@@ -68,6 +68,7 @@ export const Form = () => {
   const { user, status, error } = useAuthState();
   const theme = useTheme();
   const onSubmit: SubmitHandler<Inputs> = (data) => {
+    // @ts-ignore
     loginByEmailAndPassword(dispatch, data.email, data.password, data.rememberPassword);
   };
 

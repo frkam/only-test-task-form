@@ -32,6 +32,7 @@ const Profile = () => {
       <StyledButton
         width={20}
         onClick={() => {
+          // @ts-ignore
           logout(dispatch);
         }}
       >
