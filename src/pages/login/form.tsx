@@ -3,6 +3,7 @@ import styled, { useTheme } from 'styled-components';
 import * as yup from 'yup';
 import { yupResolver } from '@hookform/resolvers/yup';
 import { Navigate } from 'react-router-dom';
+import { useEffect, useState } from 'react';
 import { Input } from '@/components/form/input';
 import { StyledButton } from '@/components/styled/styledButton';
 import { Inputs } from '@/shared/types/loginFormInputs';
@@ -57,12 +58,14 @@ const loginFormSchema = yup
   .required();
 
 export const Form = () => {
+  const [savedPassword, setSavedPassword] = useState<string>(localStorage.getItem('password') || '');
   const {
     register,
     handleSubmit,
     formState: { errors },
   } = useForm<Inputs>({
     resolver: yupResolver(loginFormSchema),
+    defaultValues: { password: savedPassword },
   });
   const dispatch = useAuthDispatch();
   const { user, status, error } = useAuthState();

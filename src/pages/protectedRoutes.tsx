@@ -5,5 +5,5 @@ export const ProtectedRoutes = () => {
   const location = useLocation();
   const { user } = useAuthState();
 
-  return user ? <Outlet /> : <Navigate to="/login" replace state={{ from: location }} />;
+  return user?.login && user?.password ? <Outlet /> : <Navigate to="/login" replace state={{ from: location }} />;
 };

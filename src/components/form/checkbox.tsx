@@ -26,7 +26,7 @@ const Container = styled.div`
     border-radius: 4px;
   }
 
-  & input:checked + label:after {
+  & input + label:after {
     content: '';
     display: block;
     position: absolute;
@@ -37,6 +37,12 @@ const Container = styled.div`
     width: 1.4rem;
     height: 1.4rem;
     background-color: ${(props) => props.theme.colors.blue};
+    opacity: 0;
+    transition: opacity 0.1s;
+  }
+
+  & input:checked + label:after {
+    opacity: 100;
   }
 `;
 

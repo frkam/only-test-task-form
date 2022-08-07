@@ -8,9 +8,11 @@ interface InitialState {
   error: string | null;
 }
 
+const savedUser = JSON.parse(localStorage.getItem('user') || 'null');
+
 const initialState: InitialState = {
   status: 'idle',
-  user: null,
+  user: savedUser,
   error: null,
 };
 
@@ -58,6 +60,13 @@ export const loginByEmailAndPassword = async (
       user: result,
       error: null,
     });
+    localStorage.setItem('user', JSON.stringify(result));
+
+    if (rememberPassword) {
+      localStorage.setItem('password', password);
+    } else {
+      localStorage.removeItem('password');
+    }
   } catch (e) {
     if (e instanceof Error) {
       dispatch({ status: 'rejected', error: e.message });
@@ -66,5 +75,6 @@ export const loginByEmailAndPassword = async (
 };
 
 export const logout = (dispatch: Dispatch<any>) => {
-  dispatch(initialState);
+  dispatch({ user: null });
+  localStorage.removeItem('user');
 };
