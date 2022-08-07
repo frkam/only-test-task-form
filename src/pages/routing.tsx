@@ -8,7 +8,7 @@ const Profile = lazy(() => import('@/pages/profile/profile'));
 
 export const Routing = () => {
   return (
-    <Suspense fallback={<div>loading..</div>}>
+    <Suspense>
       <AuthProvider>
         <Routes>
           <Route path="/login" element={<Login />} />
