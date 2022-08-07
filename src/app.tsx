@@ -1,4 +1,13 @@
-import React from 'react';
-import ReactDOM from 'react-dom/client';
+import { Routing } from '@/pages/routing';
+import { GlobalStyles } from '@/components/styled/global';
+import { Header } from '@/components/header/header';
 
-ReactDOM.createRoot(document.getElementById('root') as HTMLElement).render(<React.StrictMode />);
+export const App = () => {
+  return (
+    <>
+      <GlobalStyles />
+      <Header />
+      <Routing />
+    </>
+  );
+};
