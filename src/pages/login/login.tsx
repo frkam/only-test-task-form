@@ -1,7 +1,7 @@
 import styled from 'styled-components';
-import { Form } from '@/pages/login/form';
+import { LoginForm } from '@/features/login';
 
-const StyledContainer = styled.div`
+const Wrapper = styled.div`
   display: flex;
   max-width: 64rem;
   margin-top: 14.69vh;
@@ -13,9 +13,9 @@ const StyledContainer = styled.div`
 
 const Login = () => {
   return (
-    <StyledContainer>
-      <Form />
-    </StyledContainer>
+    <Wrapper>
+      <LoginForm />
+    </Wrapper>
   );
 };
 

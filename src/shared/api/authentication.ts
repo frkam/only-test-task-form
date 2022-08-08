@@ -1,6 +1,8 @@
 import { fakeLogin, fakePassword } from '@/shared/config/fakeAuthenticationData';
+import { User } from '@/shared/types/authenticationTypes';
+import { authErrors } from '@/shared/config/errors';
 
-export const fakeLoginApi = async (login: string, password: string) => {
+export const fakeLoginApi = async (login: string, password: string): Promise<Omit<User, 'rememberPassword'>> => {
   return new Promise((resolve, reject) => {
     setTimeout(() => {
       if (login === fakeLogin && password === fakePassword) {
@@ -9,9 +11,9 @@ export const fakeLoginApi = async (login: string, password: string) => {
           password,
         });
       } else if (login === fakeLogin && password !== fakePassword) {
-        reject(new Error('Вы ввели неправильный пароль'));
+        reject(new Error(authErrors.incorrectPassword));
       } else {
-        reject(new Error(`Пользователя ${login} не существует`));
+        reject(new Error(authErrors.notFound(login)));
       }
     }, 3000);
   });

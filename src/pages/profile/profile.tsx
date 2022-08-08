@@ -1,7 +1,10 @@
 import styled from 'styled-components';
-import { useAuthState, useAuthDispatch, logout } from '@/context/authenticationContext';
-import { StyledButton } from '@/components/styled/styledButton';
+import { useAuthState, useAuthDispatch } from '@/entities/user';
+import { logout } from '@/features/login';
+import { StyledButton } from '@/shared/ui/styledButton';
 import { breakpoints } from '@/shared/lib/breakpoints';
+import { BoldText } from '@/shared/ui/boldText';
+import { Text } from '@/shared/ui/text';
 
 const Wrapper = styled.div`
   display: flex;
@@ -10,24 +13,20 @@ const Wrapper = styled.div`
   padding-top: 27vh;
   gap: 5rem;
   text-align: center;
+  margin: 0 2rem;
 
   ${breakpoints.device.tablet} {
     text-align: left;
   }
 `;
 
-const Text = styled.p`
-  font-size: 4rem;
-  height: 100%;
-`;
-
-const BoldText = styled.span`
-  font-weight: 700;
-`;
-
 const Profile = () => {
   const { user } = useAuthState();
   const dispatch = useAuthDispatch();
+
+  const onExit = () => {
+    logout(dispatch);
+  };
 
   return (
     <Wrapper>
@@ -35,13 +34,7 @@ const Profile = () => {
         Здравствуйте,
         <BoldText> {user?.login}</BoldText>
       </Text>
-      <StyledButton
-        width={20}
-        onClick={() => {
-          // @ts-ignore
-          logout(dispatch);
-        }}
-      >
+      <StyledButton width={20} onClick={onExit}>
         Выйти
       </StyledButton>
     </Wrapper>
