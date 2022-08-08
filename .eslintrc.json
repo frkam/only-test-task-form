@@ -31,8 +31,6 @@
         "no-async-promise-executor": "off",
         "no-useless-constructor": "off",
         "no-empty-function": "off",
-        "no-plusplus": "off",
-        "camelcase": "off",
         "dot-notation": "off",
         "no-sequences": "off",
         "no-return-assign": "off",

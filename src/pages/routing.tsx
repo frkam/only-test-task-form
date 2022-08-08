@@ -11,8 +11,9 @@ export const Routing = () => {
       <Route path="/login" element={<Login />} />
       <Route path="/" element={<ProtectedRoutes />}>
         <Route path="/profile" element={<Profile />} />
-        <Route path="*" element={<Navigate to="/profile" replace />} />
+        <Route index element={<Navigate to="/profile" replace />} />
       </Route>
+      <Route path="*" element={<Navigate to="/profile" replace />} />
     </Routes>
   );
 };
